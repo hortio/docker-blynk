@@ -5,7 +5,6 @@ volumes:
 services:
   blynk:
     image: hortio/blynk:latest
-    build: .
     command: ["-dataFolder", "/data", "-serverConfig", "/blynk/server.properties"]
     volumes: 
       - 'blynk-data:/data' 
