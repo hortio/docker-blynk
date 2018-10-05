@@ -13,8 +13,7 @@ services:
       - './mail.properties:/blynk/mail.properties'
       - './server.properties:/blynk/server.properties'
     ports:
-      - "8080:8080" # Expose only if you going to use some devices without TLS support
-      - "8441:8441"
+      - "8080:8080" 
       - "9443:9443"
     restart: always  
 
