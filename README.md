@@ -16,13 +16,29 @@ It's better to follow official instructions to install them:
 - [Install Docker](https://docs.docker.com/install/)
 - [Install Docker Compose](https://docs.docker.com/compose/install/)
 
-## Recommended flow
+## Recommended flow: running using docker compose
 
 - SSH to your server and make sure that `docker` and `docker-compose` installed
 - Clone this repo onto your server `git clone https://github.com/hortio/docker-blynk.git`
+- Go to directory: `cd docker-blynk`
 - Go through configuration in `server.properties`. In the simplest case you should only change `server.host`, `contact.email`, `admin.email` and `admin.pass`
 - Run `docker-compose up -d`
 - That's it, server will be updated to the latest version automatically.
+
+If you don't want to use automatically generated Let's encrypt certificates or you a reverse proxy (like nginx or traefik) on port 80, remove `- "80:8080"` from ports section of `docker-compose.yml` and setup your reverse proxy to forward port 80 of your hostname to port 8080
+
+## Running without docker-compose
+
+- Clone this repo onto your server `git clone https://github.com/hortio/docker-blynk.git`
+- Go to directory: `cd docker-blynk`
+- Go through configuration in `server.properties`. In the simplest case you should only change `server.host`, `contact.email`, `admin.email` and `admin.pass`
+- Run blynk itself: 
+```
+docker run -d -p 8080:8080 -p 80:8080 -p 9443:9443 -v `pwd`/server.properties:/blynk/server.properties -v `pwd`/mail.properties:/blynk/mail.properties -v `pwd`/data:/data -v `pwd`/logs:/blynk/logs  hortio/blynk:latest -dataFolder /data -serverConfig /blynk/server.properties
+```
+- That's it. Server's data will be persisted in `data` directory, logs will be accessible in `logs` 
+
+If you don't want to use automatically generated Let's encrypt certificates or you use some reverse proxy like nginx or traefik on port 80, just remove `-p 80:8080` from docker run command. 
 
 ## Questions, bugs and contributions
 Feel free to open issue or make a pull request
