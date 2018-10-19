@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 VERSION_MAJOR_MINOR=0.39
-VERSION_PATCH=10
+VERSION_PATCH=11
 
 docker build . -t hortio/blynk:latest -t hortio/blynk:v${VERSION_MAJOR_MINOR}.${VERSION_PATCH} -t hortio/blynk:v${VERSION_MAJOR_MINOR}
 docker push hortio/blynk:latest
