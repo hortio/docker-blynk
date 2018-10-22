@@ -1,7 +1,7 @@
 FROM openjdk:11-jre-slim
 LABEL maintainer="Sergei Silnov <po@kumekay.com>"
 
-ENV VERSION 0.39.11
+ENV VERSION 0.39.12
 ADD "https://github.com/blynkkk/blynk-server/releases/download/v${VERSION}/server-${VERSION}.jar"  /blynk/server.jar
 
 WORKDIR /blynk
