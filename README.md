@@ -1,4 +1,4 @@
-# Docker container for Blynk server (v0.40.2)
+# Docker container for Blynk server (v0.41.0)
 [Blynk server](https://github.com/blynkkk/blynk-server) is an open source server to be used as back end for IoT projects. It works with Android and iOS apps that provide simple still powerful interface to your internet connected devices like ESP8266, ESP32, Raspbery Pi and Arduino.
 
 Goal of this project is to provide a simple way to install Blynk server to own server/hardware 
