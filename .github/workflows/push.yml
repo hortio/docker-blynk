@@ -1,6 +1,8 @@
 name: Dockerhub Pusher
 
-on: push
+on:
+  push:
+    branches: [master]
 
 jobs:
   main:
